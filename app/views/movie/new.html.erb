@@ -1,0 +1,24 @@
+<h2 class="ui center aligned large header">
+  Share a Youtube Movie
+</h2>
+
+<div class="ui placeholder segment">
+  <div class="ui very relaxed stackable grid">
+    <div class="column">
+      <%= form_for(:movie, html: {class: "ui form", role: "form"}, url: share_path) do |f| %>
+        <div class="field">
+          <%= f.label :url, "Youtube URL:" %>
+          <div class="ui left icon input">
+            <%= f.text_field :url, placeholder: ""%>
+
+          </div>
+        </div>
+
+        <%= f.button "Share", class: "ui orange submit button" %>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>
+

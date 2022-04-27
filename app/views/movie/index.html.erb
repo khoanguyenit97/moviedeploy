@@ -1,0 +1,26 @@
+</br>
+<div class="ui placeholder segment">
+  <div class="ui two column very relaxed stackable grid">
+    <% @movie.each do |movie| %>
+      <div class="column">
+        <%= embed(movie.url) %>
+      </div>
+      <div class="middle aligned column">
+        <h1>Movie Title</h1>
+        <p>Share by: <%= movie.users.pluck(:username).join(', ') %></p>
+        <p>Description:</p>
+        <p>Cốt truyện Spider-Man: No Way Home xoay quanh cuộc sống đã bị đảo lộn của Peter Parker
+          (Tom Holland) bởi kẻ phản diện Mysterio trong Spider-Man: Far From Home đã công bố danh tính thật
+          của cậu chàng là Spider-Man cho cả thế giới biết. Để bảo vệ gia đình và bạn bè của mình,
+          Peter yêu cầu sự giúp đỡ của phù thủy toàn năng Doctor Strange (Benedict Cumberbatch)
+          nhằm khiến mọi người quên đi danh tính của mình. Nhưng một trục trặc đã xảy ra và năm
+          kẻ thù cũ của Spider- Man đến từ các vũ trụ khác bước vào cuộc đời của anh bao gồm:
+          Doc Ock (Alfred Molina), Green Goblin (Willem Dafoe), Electro (Jamie Foxx),
+          Sandman (Thomas Haden Church) và The Lizard  (Rhys Ifans). Nghe thật hấp dẫn phải không nào? </p>
+      </div>
+    <% end %>
+
+
+  <div class="ui vertical">
+  </div>
+</div>
