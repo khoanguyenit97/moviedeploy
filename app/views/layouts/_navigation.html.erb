@@ -2,12 +2,11 @@
 <div class="left menu" id="logo">
   <div class="ui grid">
     <i class="orange film icon" ></i>
-    <%= link_to "Funny Movies", root_path%>
+    <%= link_to "Funny Movies", root_path, class: "ui green big" %>
   </div>
 </div>
 <div class="right menu">
   <div class="ui item">
-
     <% if logged_in? %>
       <div class="item">
         <p>Welcome <%= current_user.username %></p>

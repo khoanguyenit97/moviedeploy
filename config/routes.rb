@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'movie#index'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
-  get 'register', to: 'users#new'
+  # get 'register', to: 'users#new'
   delete 'logout', to: 'sessions#destroy'
   get 'share', to: 'movie#new'
   post 'share', to: 'movie#create'

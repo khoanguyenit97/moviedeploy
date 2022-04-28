@@ -1,16 +1,17 @@
 class SessionsController < ApplicationController
   before_action :logged_in_redirect, only: %i[new create]
-  def login
-  end
 
   def new
-
+    @user = User.new
   end
 
   def create
-    user = User.find_by(username: session_params[:username])
-    user = create_user if user.nil?
-    login(user)
+    @user = User.find_by(username: user_params[:username])
+    if @user.nil?
+      create_user
+    else
+      login(@user)
+    end
   end
 
   def destroy
@@ -22,7 +23,7 @@ class SessionsController < ApplicationController
   private
 
   def login(user)
-    if user&.authenticate(session_params[:password])
+    if user&.authenticate(user_params[:password])
       session[:user_id] = user.id
       flash[:success] = 'You have successfully logged in'
       redirect_to root_path
@@ -33,11 +34,12 @@ class SessionsController < ApplicationController
   end
 
   def create_user
-    @user = User.new(session_params)
-    if @user.save
-      @user
+    @user = User.new(user_params)
+    if @user.valid?
+      @user.save
+      login(@user)
     else
-      render "new"
+      render :new
     end
   end
 
@@ -48,7 +50,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def session_params
-    params.require(:session).permit(:username, :password)
+  def user_params
+    params.require(:user).permit(:username, :password)
   end
 end
