@@ -6,19 +6,13 @@
   <div class="ui very relaxed stackable grid">
     <div class="column">
       <%= form_for(:movie, html: {class: "ui form", role: "form"}, url: share_path) do |f| %>
-        <div class="field">
-          <%= f.label :url, "Youtube URL:" %>
-          <div class="ui left icon input">
-            <%= f.text_field :url, placeholder: ""%>
-
-          </div>
+        <%= f.label :url, "Youtube URL:" %>
+        <div class="ui left icon input" id="url_share">
+          <%= f.text_field :url, placeholder: ""%>
         </div>
-
         <%= f.button "Share", class: "ui orange submit button" %>
       <% end %>
     </div>
-
   </div>
-
 </div>
 

@@ -1,5 +1,4 @@
 $(document).on('turbolinks:load', function(){
-    console.log("13132")
     $('.message .close').on('click', function() {
         console.log("dong")
       $(this).closest('.message').transition('fade');
